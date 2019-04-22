@@ -50,6 +50,8 @@
         <!-- Time / Weather / logo -->
         <control type="group">
             <top>20</top>
+            <width>1920</width>
+            
 
             <control type="image">
                 <left>50</left>
@@ -58,15 +60,47 @@
                 <texture colordiffuse="Window.Property(highlight_color)">kodi.png</texture>
             </control>
 
-            <control type="label">
-                <description>Title</description>
-                <right>70</right>
-                <height>100</height>
-                <width>200</width>
-                <textcolor>white</textcolor>
-                <label>$INFO[Weather.Temperature] [COLOR=ff30ABDB]|[/COLOR] $INFO[System.Time]</label>
+            <control type="grouplist">
+                <top>-980</top>
                 <align>right</align>
-                <shadowcolor>ff111111</shadowcolor>
+                <right>50</right>
+                <orientation>horizontal</orientation>
+                <width>700</width>
+                <control type="label">
+                    <description>Weather</description>
+                    <textcolor>white</textcolor>
+                    <label>$INFO[Weather.Conditions] , $INFO[Weather.Temperature]</label>
+                    <width>auto</width>
+                    <shadowcolor>ff111111</shadowcolor>
+                    <visible>Weather.IsFetched</visible>
+                    <visible>!String.IsEmpty(Weather.Temperature)</visible>
+                </control>
+                <control type="label">
+                    <width>auto</width>
+                    <textcolor>Window.Property(highlight_color)</textcolor>
+                    <label>  -  </label>
+                    <visible>!String.IsEmpty(Weather.Temperature)</visible>
+                    <visible>Weather.IsFetched</visible>
+                </control>
+                <control type="label">
+                    <description>Date</description>
+                    <textcolor>white</textcolor>
+                    <label>$INFO[System.Date]</label>
+                    <shadowcolor>ff111111</shadowcolor>
+                    <width>auto</width>
+                </control>
+                <control type="label">
+                    <width>auto</width>
+                    <textcolor>Window.Property(highlight_color)</textcolor>
+                    <label>  -  </label>
+                </control>
+                <control type="label">
+                    <description>Time</description>
+                    <textcolor>white</textcolor>
+                    <label>$INFO[System.Time]</label>
+                    <shadowcolor>ff111111</shadowcolor>
+                    <width>auto</width>
+                </control>
             </control>
         </control>
 

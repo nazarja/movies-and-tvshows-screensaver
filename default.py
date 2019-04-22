@@ -13,7 +13,7 @@ import xbmcaddon
 import sys
 import gui
 
-addon = xbmcaddon.Addon('script.screensaver.tmdbss')
+addon = xbmcaddon.Addon('script.screensaver.moviesandtvshows')
 addon_name = addon.getAddonInfo('name')
 addon_path = addon.getAddonInfo('path')
 

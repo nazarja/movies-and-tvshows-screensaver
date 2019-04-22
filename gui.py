@@ -13,7 +13,7 @@ from resources.lib.movie_genres import movie_genres
 from resources.lib.tv_genres import tv_genres
 
 
-addon = xbmcaddon.Addon('script.screensaver.tmdbss')
+addon = xbmcaddon.Addon('sscript.screensaver.moviesandtvshows')
 addon_name = addon.getAddonInfo('name')
 addon_path = addon.getAddonInfo('path')
 

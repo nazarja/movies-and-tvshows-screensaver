@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <setting id="RotateTime"  type="enum"   label="Item Rotate Time" default="15"  values="10s|15s|20s|30s|45s|60s"/>
+</settings>

@@ -65,7 +65,6 @@
                 <align>right</align>
                 <right>50</right>
                 <orientation>horizontal</orientation>
-                <width>700</width>
                 <control type="label">
                     <description>Weather</description>
                     <textcolor>white</textcolor>
@@ -107,16 +106,12 @@
 
         <!-- Item Info -->
         <control type="group">
-            <top>500</top>
-            <left>460</left>
-            <height>1080</height>
-            <width>1000</width>
+
 
             <!-- Panel Background -->
             <control type="image">
-                <bottom>500</bottom>
-                <left>-460</left>
-                <height>470</height>
+                <bottom>0</bottom>
+                <height>350</height>
                 <width>1920</width>
                 <texture>panel.jpg</texture>
                 <colordiffuse>e7000000</colordiffuse>
@@ -124,10 +119,12 @@
             
 
             <control type="group">
-                <top>60</top>
+                <width>1220</width>
 
                 <!-- tmdb logo -->
                 <control type="image">
+                    <left>250</left>
+                    <bottom>290</bottom>
                     <width>32</width>
                     <height>32</height>
                     <texture colordiffuse="ff01D277">tmdb.png</texture>
@@ -135,7 +132,8 @@
 
                 <!-- Rating -->
                 <control type="label" id="3300">
-                    <left>50</left>
+                    <left>300</left>
+                    <bottom>290</bottom>
                     <height>32</height>
                     <description>Rating</description>
                     <textcolor>white</textcolor>
@@ -145,8 +143,8 @@
                 
                 <!-- Title -->
                 <control type="label" id="4400">
-                    <width>600</width>
-                    <left>125</left>
+                    <left>360</left>
+                    <bottom>290</bottom>
                     <height>32</height>
                     <description>Title</description>
                     <textcolor>white</textcolor>
@@ -154,36 +152,37 @@
                     <shadowcolor>ff111111</shadowcolor>
                 </control>
                
-                <!-- Poster -->
-                <control type="image" id="5500">
-                    <top>-150</top>
-                    <height>260</height>
-                    <width>173.3</width>
-                    <left>820</left>
-                    <texture diffuse="poster-diffuse.png"></texture>
-                    <fadetime>800</fadetime>
-                </control>
-
                 <!-- Genres -->
                 <control type="label" id="6600">
-                    <left>0</left>
-                    <top>75</top>
+                    <left>250</left>
+                    <bottom>250</bottom>
                     <height>32</height>
                     <description>Genres</description>
                     <textcolor>ff999999</textcolor>
                     <label></label>
+                </control>
+
+                <!-- Poster -->
+                <control type="image" id="5500">
+                    <bottom>250</bottom>
+                    <height>400</height>
+                    <width>266</width>
+                    <left>1370</left>
+                    <texture diffuse="poster-diffuse.png"></texture>
+                    <fadetime>800</fadetime>
                 </control>
             </control>
 
 
             <!-- Plot -->
             <control type="label" id="7700">
-                <top>250</top>
-                <height>200</height>
+                <left>250</left>
+                <right>250</right>
+                <bottom>20</bottom>
+                <height>190</height>
                 <description>Plot</description>
                 <textcolor>ffdddddd</textcolor>
                 <label></label>
-                <align>center</align>
                 <wrapmultiline>true</wrapmultiline>
                 <scrolltime>200</scrolltime>
                 <autoscroll delay="3000" time="1000" repeat="10000"></autoscroll>

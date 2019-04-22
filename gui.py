@@ -62,8 +62,8 @@ class Screensaver(xbmcgui.WindowXMLDialog):
         data = []
         for item in tmdb_list:
             request = Request(item)
-            response_body = urlopen(request).read()
-            response = json.loads(str(response_body))
+            response_body = urlopen(request)
+            response = json.load(response_body)
             data.append(response['results'])
 
         data = data[0] + data[1] + data[2] + data[3]
@@ -116,7 +116,10 @@ class Screensaver(xbmcgui.WindowXMLDialog):
         if not data['overview']:
             data['overview'] == 'No Information Available'
 
-        self.getControl(7700).setLabel(str(data['overview']))
+        try:
+            self.getControl(7700).setLabel(data['overview'])
+        except:
+             self.getControl(7700).setLabel('No Information Available')
 
 
     def onAction(self, action):

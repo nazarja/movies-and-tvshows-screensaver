@@ -30,12 +30,13 @@
 
         <!-- Background Overlays -->
         <control type="group">
+            <visible>String.isEqual(Window.Property(hide_overlay),show)</visible>
             <control type="image">
                 <aspectratio>scale</aspectratio>
                 <width>1920</width>
                 <height>1080</height>
                 <texture>white.png</texture>
-                <colordiffuse>800385b5</colordiffuse>
+                <colordiffuse>Window.Property(highlight_color)</colordiffuse>
             </control>
             <control type="image">
                 <aspectratio>scale</aspectratio>
@@ -54,7 +55,7 @@
                 <left>50</left>
                 <width>80</width>
                 <height>80</height>
-                <texture colordiffuse="ff30ABDB">kodi.png</texture>
+                <texture colordiffuse="Window.Property(highlight_color)">kodi.png</texture>
             </control>
 
             <control type="label">
@@ -65,6 +66,7 @@
                 <textcolor>white</textcolor>
                 <label>$INFO[Weather.Temperature] [COLOR=ff30ABDB]|[/COLOR] $INFO[System.Time]</label>
                 <align>right</align>
+                <shadowcolor>ff111111</shadowcolor>
             </control>
         </control>
 
@@ -104,6 +106,7 @@
                     <description>Rating</description>
                     <textcolor>white</textcolor>
                     <label></label>
+                    <shadowcolor>ff111111</shadowcolor>
                 </control>
                 
                 <!-- Title -->
@@ -114,6 +117,7 @@
                     <description>Title</description>
                     <textcolor>white</textcolor>
                     <label></label>
+                    <shadowcolor>ff111111</shadowcolor>
                 </control>
                
                 <!-- Poster -->

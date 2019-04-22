@@ -13,13 +13,16 @@ from resources.lib.movie_genres import movie_genres
 from resources.lib.tv_genres import tv_genres
 
 
-addon = xbmcaddon.Addon('sscript.screensaver.moviesandtvshows')
+addon = xbmcaddon.Addon('script.screensaver.moviesandtvshows')
 addon_name = addon.getAddonInfo('name')
 addon_path = addon.getAddonInfo('path')
-
-
 monitor = xbmc.Monitor()
+
+
 timer = [10,15,20,30,45,60][int(addon.getSetting("RotateTime"))]
+hide_overlay = 'hide' if addon.getSetting('HideOverlay') == 'true' else 'show'
+colors = [ '800385b5', '80b80419', '80bd069e', '80c25808', '80c7b10a', '8022cc0c', '80810ccf']
+highlight_color = colors[int(addon.getSetting('HighlightColor'))]
 date = (datetime.datetime.utcnow() - datetime.timedelta(hours = 12))
 today = (date).strftime('%Y-%m-%d')
 
@@ -41,6 +44,9 @@ class Screensaver(xbmcgui.WindowXMLDialog):
 
 
     def onInit(self):
+        self.window_id = xbmcgui.Window(xbmcgui.getCurrentWindowDialogId())
+        self.window_id.setProperty('hide_overlay', hide_overlay)
+        self.window_id.setProperty('highlight_color', highlight_color)
         self.getCache()
 
 

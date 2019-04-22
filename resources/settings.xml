@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
     <setting id="RotateTime"  type="enum"   label="Item Rotate Time" default="15"  values="10s|15s|20s|30s|45s|60s"/>
+    <setting label="Hide Overlay" type="bool" id="HideOverlay" default="false"/>
+    <setting label="Highlight Color" type="enum" id="HighlightColor" default="0" values="blue|red|pink|orange|yellow|green|purple"/>
 </settings>

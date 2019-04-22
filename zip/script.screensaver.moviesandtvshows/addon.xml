@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.screensaver.moviesandtvshows" name="Movies and TV Shows Screensaver" version="1.0.0" provider-name="Nazarja">
+	<requires>
+		<import addon="xbmc.python" version="2.25.0" />
+		<import addon="script.module.simplecache" version="1.0.0" />
+	</requires>
+	<extension point="xbmc.ui.screensaver" library="default.py" />
+	<extension point="xbmc.python.script" library="default.py" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">A Movie and TV Show Screensaver, data from The Movie Database (TMDB).</summary>
+		<description lang="en">A rotating screensaver that updates daily data from The Movie Database on the latest movies and tv shows. Fanart, Plot, Title, Rating and Genres Available.</description>
+		<website>https://seanmurphy.eu</website>
+		<source>https://github.com/nazarja/movies-and-tvshows-screensaver</source>
+		<forum>https://forum.kodi.tv/showthread.php?tid=321718</forum>
+		<news>v.1.0.0 - Initial Launch</news>
+		<assets>
+			<icon>resources/images/icon.png</icon>
+			<fanart>resources/images/fanart.png</fanart>
+			<screenshot>resources/images/screenshot-1.png</screenshot>
+			<screenshot>resources/images/screenshot-2.png</screenshot>
+			<screenshot>resources/images/screenshot-3.png</screenshot>
+		</assets>
+		<news>Initial release of an TMDB Screen Saver</news>
+	</extension>
+</addon>

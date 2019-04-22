@@ -84,7 +84,7 @@ class Screensaver(xbmcgui.WindowXMLDialog):
         while not monitor.abortRequested():
             self.next = choice(data)
             self.setItem(self.next)
-            if monitor.waitForAbort(5) == True or self.isExiting == True: break
+            if monitor.waitForAbort(timer) == True or self.isExiting == True: break
 
     
     def getGenres(self, data, category):

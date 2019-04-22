@@ -85,24 +85,24 @@ class Screensaver(xbmcgui.WindowXMLDialog):
 
 
     def setItem(self, data):
-        self.getControl(2).setImage(fanart + data['backdrop_path'])
+        self.getControl(2200).setImage(fanart + data['backdrop_path'])
         
         votes = float(data['vote_average'])
-        self.getControl(3).setLabel(str(votes))
+        self.getControl(3300).setLabel(str(votes))
 
         try:
-            self.getControl(4).setLabel(str(data['title']))
-            self.getControl(6).setLabel(self.getGenres(data['genre_ids'], 'movie'))
+            self.getControl(4400).setLabel(str(data['title']))
+            self.getControl(6600).setLabel(self.getGenres(data['genre_ids'], 'movie'))
         except:
-            self.getControl(4).setLabel(str(data['name']))
-            self.getControl(6).setLabel(self.getGenres(data['genre_ids'], 'tvshow'))
+            self.getControl(4400).setLabel(str(data['name']))
+            self.getControl(6600).setLabel(self.getGenres(data['genre_ids'], 'tvshow'))
 
-        self.getControl(5).setImage(poster + data['poster_path'])
+        self.getControl(5500).setImage(poster + data['poster_path'])
 
         if not data['overview']:
             data['overview'] == 'No Information Available'
 
-        self.getControl(7).setLabel(str(data['overview']))
+        self.getControl(7700).setLabel(str(data['overview']))
 
 
     def onAction(self, action):

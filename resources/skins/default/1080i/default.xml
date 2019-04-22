@@ -6,7 +6,7 @@
         <!-- Images -->
         <control type="group">
             <!-- Background Image -->
-            <control type="image" id="1">
+            <control type="image" id="1100">
                 <description>Fanart Previous</description>
                 <posx>0</posx>
                 <posy>0</posy>
@@ -17,7 +17,7 @@
             </control>
 
             <!-- Foreground Image -->
-            <control type="image" id="2">
+            <control type="image" id="2200">
                 <description>Fanart Current</description>
                 <posx>0</posx>
                 <posy>0</posy>
@@ -98,7 +98,7 @@
                 </control>
 
                 <!-- Rating -->
-                <control type="label" id="3">
+                <control type="label" id="3300">
                     <left>50</left>
                     <height>32</height>
                     <description>Rating</description>
@@ -107,7 +107,7 @@
                 </control>
                 
                 <!-- Title -->
-                <control type="label" id="4">
+                <control type="label" id="4400">
                     <width>600</width>
                     <left>125</left>
                     <height>32</height>
@@ -117,7 +117,7 @@
                 </control>
                
                 <!-- Poster -->
-                <control type="image" id="5">
+                <control type="image" id="5500">
                     <top>-150</top>
                     <height>260</height>
                     <width>173.3</width>
@@ -127,7 +127,7 @@
                 </control>
 
                 <!-- Genres -->
-                <control type="label" id="6">
+                <control type="label" id="6600">
                     <left>0</left>
                     <top>75</top>
                     <height>32</height>
@@ -139,7 +139,7 @@
 
 
             <!-- Plot -->
-            <control type="label" id="7">
+            <control type="label" id="7700">
                 <top>250</top>
                 <height>200</height>
                 <description>Plot</description>

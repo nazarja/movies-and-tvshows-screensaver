@@ -23,23 +23,31 @@ timer = [10,15,20,30,45,60][int(addon.getSetting("RotateTime"))]
 hide_overlay = 'hide' if addon.getSetting('HideOverlay') == 'true' else 'show'
 colors = [ '800385b5', '80b80419', '80bd069e', '80c25808', '80c7b10a', '8022cc0c', '80810ccf']
 highlight_color = colors[int(addon.getSetting('HighlightColor'))]
+
 date = (datetime.datetime.utcnow() - datetime.timedelta(hours = 12))
 today = (date).strftime('%Y-%m-%d')
+current_year = (date).strftime('%Y')
+previous_year = str(int((date).strftime('%Y')) - 1)
 
 
 api_key = '?api_key=d41fd9978486321b466e29bfec203902'
 poster = 'https://image.tmdb.org/t/p/w500'
 fanart =  'https://image.tmdb.org/t/p/w1280'
-tmdb_list = ['https://api.themoviedb.org/3/movie/now_playing'+api_key+'&language=en-US&page=1', 'https://api.themoviedb.org/3/discover/tv'+api_key+'&language=en-US&sort_by=popularity.desc&air_date.gte='+str(today)+'&page=1&timezone=America%2FNew_York&without_genres=16%2C10751%2C10762%2C10763%2C10764%2C10766%2C10767%2C210024&include_null_first_air_dates=false']
+tmdb_list = [
+    'https://api.themoviedb.org/3/movie/now_playing'+api_key+'&language=en-US&page=1',
+    'https://api.themoviedb.org/3/discover/movie'+api_key+'&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte='+previous_year+'&primary_release_date.lte='+current_year+'&without_genres=16%2C10751%2C10762%2C10763%2C10764%2C10766%2C10767%2C210024',
+    'https://api.themoviedb.org/3/discover/tv'+api_key+'&language=en-US&sort_by=popularity.desc&air_date.gte='+str(today)+'&page=1&timezone=America%2FNew_York&without_genres=16%2C10751%2C10762%2C10763%2C10764%2C10766%2C10767%2C210024&include_null_first_air_dates=false',
+    'https://api.themoviedb.org/3/discover/tv'+api_key+'&language=en-US&sort_by=popularity.desc&first_air_date.gte='+previous_year+'&page=1&timezone=America%2FNew_York&without_genres=16%2C10751%2C10762%2C10763%2C10764%2C10766%2C10767%2C210024&include_null_first_air_dates=false'     
+]
 
 
 
 class Screensaver(xbmcgui.WindowXMLDialog):
 
     def __init__( self, *args, **kwargs):
-        self.prev = None
         self.next = None
         self.isExiting = False
+        self.window_id = None
         self.cache = simplecache.SimpleCache()
 
 
@@ -58,7 +66,7 @@ class Screensaver(xbmcgui.WindowXMLDialog):
             response = json.loads(str(response_body))
             data.append(response['results'])
 
-        data = data[0] + data[1]
+        data = data[0] + data[1] + data[2] + data[3]
         return data
 
 

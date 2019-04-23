@@ -20,9 +20,13 @@ monitor = xbmc.Monitor()
 
 
 timer = [10,15,20,30,45,60][int(addon.getSetting("RotateTime"))]
+highlight_color = [ '800385b5', '80b80419', '80bd069e', '80c25808', '80c7b10a', '8025D366', '80810ccf'][int(addon.getSetting('HighlightColor'))]
+hide_topbar = 'hide' if addon.getSetting('HideTopbar') == 'true' else 'show'
+hide_information = 'hide' if addon.getSetting('HideInformation') == 'true' else 'show'
 hide_overlay = 'hide' if addon.getSetting('HideOverlay') == 'true' else 'show'
-colors = [ '800385b5', '80b80419', '80bd069e', '80c25808', '80c7b10a', '8022cc0c', '80810ccf']
-highlight_color = colors[int(addon.getSetting('HighlightColor'))]
+darker_overlay = 'darker' if addon.getSetting('DarkerOverlay') == 'true' else 'lighter'
+no_color = 'nocolor' if addon.getSetting('NoColor') == 'true' else 'color'
+
 
 date = (datetime.datetime.utcnow() - datetime.timedelta(hours = 12))
 today = (date).strftime('%Y-%m-%d')
@@ -53,8 +57,12 @@ class Screensaver(xbmcgui.WindowXMLDialog):
 
     def onInit(self):
         self.window_id = xbmcgui.Window(xbmcgui.getCurrentWindowDialogId())
-        self.window_id.setProperty('hide_overlay', hide_overlay)
         self.window_id.setProperty('highlight_color', highlight_color)
+        self.window_id.setProperty('hide_information', hide_information)
+        self.window_id.setProperty('hide_topbar', hide_topbar)
+        self.window_id.setProperty('hide_overlay', hide_overlay)
+        self.window_id.setProperty('darker_overlay', darker_overlay)
+        self.window_id.setProperty('no_color', no_color)
         self.getCache()
 
 
@@ -65,9 +73,7 @@ class Screensaver(xbmcgui.WindowXMLDialog):
             response_body = urlopen(request)
             response = json.load(response_body)
             data.append(response['results'])
-
-        data = data[0] + data[1] + data[2] + data[3]
-        return data
+        return data[0] + data[1] + data[2] + data[3]
 
 
     def getCache(self):
@@ -84,37 +90,40 @@ class Screensaver(xbmcgui.WindowXMLDialog):
         while not monitor.abortRequested():
             self.next = choice(data)
             self.setItem(self.next)
-            if monitor.waitForAbort(timer) == True or self.isExiting == True: break
+            if monitor.waitForAbort(3) == True or self.isExiting == True: break
 
     
     def getGenres(self, data, category):
-        genres = []
         genre_type = movie_genres if category == 'movie' else tv_genres
-
+        genres = []
         for genre in genre_type:
             if int(genre[1]) in data:
                 genres.append(genre[0])
-
         return ' / '.join(genres)
 
 
     def setItem(self, data):
-        self.getControl(2200).setImage(fanart + data['backdrop_path'])
-        
-        votes = float(data['vote_average'])
-        self.getControl(3300).setLabel(str(votes))
 
-        try:
-            self.getControl(4400).setLabel(str(data['title']))
-            self.getControl(6600).setLabel(self.getGenres(data['genre_ids'], 'movie'))
-        except:
-            self.getControl(4400).setLabel(str(data['name']))
-            self.getControl(6600).setLabel(self.getGenres(data['genre_ids'], 'tvshow'))
-
-        self.getControl(5500).setImage(poster + data['poster_path'])
+        if not data['backdrop_path']:
+            self.rotateItems()
 
         if not data['overview']:
             data['overview'] == 'No Information Available'
+
+        self.getControl(2200).setImage(fanart + data['backdrop_path'])
+        self.getControl(5500).setImage(poster + data['poster_path'])
+
+        try: 
+            self.getControl(3300).setLabel(str(float(data['vote_average'])))
+        except:
+            self.getControl(3300).setLabel('0.0')
+            
+        try:
+            self.getControl(4400).setLabel(data['title'])
+            self.getControl(6600).setLabel(self.getGenres(data['genre_ids'], 'movie'))
+        except:
+            self.getControl(4400).setLabel(data['name'])
+            self.getControl(6600).setLabel(self.getGenres(data['genre_ids'], 'tvshow'))
 
         try:
             self.getControl(7700).setLabel(data['overview'])

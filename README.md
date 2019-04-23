@@ -18,6 +18,9 @@ Settings include:
 - Different Roatation Time Options
 - Change Overlay Color Options.
 - Enable / Disable Overlay
+- Remove Information
+- Change Overlay Color and Thickness
+- Fanart Only Mode.
 
 ---
 
@@ -37,7 +40,9 @@ Enjoy!
 ## Screenshots and Images
 
 ![fanart.png](./resources/images/fanart.png "fanart.png")
-![screenshot-01.png](./resources/images/screenshot-01.png "screenshot-01.png")
+![screenshot-01.png](./resources/images/screenshot-02.png "screenshot-01.png")
+![screenshot-03.png](./resources/images/screenshot-03.png "screenshot-03.png")
+![settings.png](./resources/images/settings.png "settings.png")
 ![icon.png](./resources/images/icon.png "icon.png")
 
 

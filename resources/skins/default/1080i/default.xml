@@ -6,8 +6,8 @@
         <!-- Images -->
         <control type="group">
             <!-- Background Image -->
-            <control type="image" id="1100">
-                <description>Fanart Previous</description>
+            <control type="image">
+                <description>Black Background</description>
                 <posx>0</posx>
                 <posy>0</posy>
                 <width>1920</width>
@@ -28,10 +28,11 @@
             </control>
         </control>
 
+
         <!-- Background Overlays -->
         <control type="group">
-            <visible>String.isEqual(Window.Property(hide_overlay),show)</visible>
             <control type="image">
+                <visible>String.isEqual(Window.Property(no_color),color)</visible>
                 <aspectratio>scale</aspectratio>
                 <width>1920</width>
                 <height>1080</height>
@@ -39,10 +40,20 @@
                 <colordiffuse>Window.Property(highlight_color)</colordiffuse>
             </control>
             <control type="image">
+                <visible>String.isEqual(Window.Property(hide_overlay),show)</visible>
+                <visible>String.isEqual(Window.Property(darker_overlay),darker)</visible>
                 <aspectratio>scale</aspectratio>
                 <width>1920</width>
                 <height>1080</height>
                 <texture>black.png</texture>
+            </control>
+            <control type="image">
+                <visible>String.isEqual(Window.Property(hide_overlay),show)</visible>
+                <visible>String.isEqual(Window.Property(darker_overlay),lighter)</visible>
+                <aspectratio>scale</aspectratio>
+                <width>1920</width>
+                <height>1080</height>
+                <texture colordiffuse="ff000000">square-grey.png</texture>
             </control>
         </control>
 
@@ -61,6 +72,7 @@
             </control>
 
             <control type="grouplist">
+                <visible>String.isEqual(Window.Property(hide_topbar),show)</visible>
                 <top>-980</top>
                 <align>right</align>
                 <right>50</right>
@@ -106,7 +118,7 @@
 
         <!-- Item Info -->
         <control type="group">
-
+            <visible>String.isEqual(Window.Property(hide_information),show)</visible>
 
             <!-- Panel Background -->
             <control type="image">

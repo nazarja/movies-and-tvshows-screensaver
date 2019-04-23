@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-    <setting id="RotateTime"  type="enum"   label="Item Rotate Time" default="15"  values="10s|15s|20s|30s|45s|60s"/>
-    <setting label="Hide Overlay" type="bool" id="HideOverlay" default="false"/>
-    <setting label="Highlight Color" type="enum" id="HighlightColor" default="0" values="blue|red|pink|orange|yellow|green|purple"/>
+    <category label="Settings">
+        <setting label="Timer" type="lsep"/>
+        <setting id="RotateTime"  type="enum"   label="Item Rotate Time" default="15"  values="10s|15s|20s|30s|45s|60s"/>
+        <setting label="Information" type="lsep"/>
+        <setting label="Hide Topbar" type="bool" id="HideTopbar" default="false"/>
+        <setting label="Hide Information" type="bool" id="HideInformation" default="false"/>
+        <setting label="Overlay" type="lsep"/>
+        <setting label="Hide Overlay" type="bool" id="HideOverlay" default="false"/>
+        <setting label="Use Darker Overlay" type="bool" id="DarkerOverlay" subsetting="true" visible="eq(-1,false)" default="false"/>
+        <setting label="No Color" type="bool" id="NoColor" default="false"/>
+        <setting label="Highlight Color" type="enum" id="HighlightColor" default="0" subsetting="true" visible="eq(-1,false)" values="blue|red|pink|orange|yellow|green|purple"/>
+    </category>
 </settings>

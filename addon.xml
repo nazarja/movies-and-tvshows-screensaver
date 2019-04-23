@@ -9,7 +9,7 @@
 	<extension point="xbmc.addon.metadata">
 		<platform>all</platform>
 		<summary lang="en">A Movie and TV Show Screensaver, data from The Movie Database (TMDB).</summary>
-		<description lang="en">A rotating screensaver that updates daily data from The Movie Database on the latest movies and tv shows. Fanart, Plot, Title, Rating and Genres Available.</description>
+		<description lang="en">A rotating screensaver that updates daily data from The Movie Database on the latest movies and tv shows. Fanart, Plot, Title, Rating and Genres Available. Customization options to style the screensaver. Remove Information, Change Overlay Color and Thickness, Fanart Only.</description>
 		<website>https://seanmurphy.eu</website>
 		<source>https://github.com/nazarja/movies-and-tvshows-screensaver</source>
 		<forum>https://forum.kodi.tv/showthread.php?tid=321718</forum>
@@ -20,6 +20,7 @@
 			<screenshot>resources/images/screenshot-1.png</screenshot>
 			<screenshot>resources/images/screenshot-2.png</screenshot>
 			<screenshot>resources/images/screenshot-3.png</screenshot>
+			<screenshot>resources/images/settings.png</screenshot>
 		</assets>
 		<news>Initial release of an TMDB Screen Saver</news>
 	</extension>
